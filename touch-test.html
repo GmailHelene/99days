@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Touch Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #1a1a2e;
+            color: white;
+        }
+        
+        .test-button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 20px;
+            margin: 10px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            min-height: 60px;
+            min-width: 200px;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: rgba(255,255,255,0.3);
+        }
+        
+        .test-div {
+            background: #e74c3c;
+            color: white;
+            padding: 20px;
+            margin: 10px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            min-height: 60px;
+            min-width: 200px;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: rgba(255,255,255,0.3);
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        
+        #result {
+            background: #2c3e50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mobile Touch Test</h1>
+    
+    <button class="test-button" onclick="testClick('Button onClick')">
+        Test Button (onClick)
+    </button>
+    
+    <button class="test-button" ontouchstart="testClick('Button onTouchStart')">
+        Test Button (onTouchStart)
+    </button>
+    
+    <div class="test-div" onclick="testClick('Div onClick')">
+        Test Div (onClick)
+    </div>
+    
+    <div class="test-div" ontouchstart="testClick('Div onTouchStart')">
+        Test Div (onTouchStart)
+    </div>
+    
+    <div id="result">
+        <h3>Test Results:</h3>
+        <div id="log"></div>
+    </div>
+    
+    <script>
+        function testClick(message) {
+            console.log('Test:', message);
+            const log = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            log.innerHTML += `<p>${timestamp}: ${message}</p>`;
+            
+            // Also try alert for mobile debugging
+            alert(message);
+        }
+        
+        // Test global function
+        window.globalTest = function(msg) {
+            testClick('Global: ' + msg);
+        };
+        
+        console.log('Touch test page loaded');
+    </script>
+    
+    <div class="test-div" onclick="window.globalTest('Global onClick')">
+        Test Global Function
+    </div>
+</body>
+</html>
