@@ -1,0 +1,274 @@
+/* Touch-optimaliserte menyknapper */
+.menu-button {
+    min-height: 44px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    font-size: 18px;
+    border-radius: 8px;
+    background: #3498db;
+    color: #fff;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    cursor: pointer;
+    touch-action: manipulation;
+    pointer-events: auto !important;
+    transition: background 0.2s;
+}
+.menu-button:active, .menu-button:focus {
+    background: #217dbb;
+    outline: none;
+}
+/* Beyond 99 Days - Responsivt design for mobil og desktop */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #1a1a2e;
+    color: #fff;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+#gameCanvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    cursor: crosshair;
+    touch-action: none;
+    outline: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Deaktiver input på canvas når UI er åpen */
+#gameCanvas.ui-block {
+    pointer-events: none !important;
+    opacity: 0.3;
+    filter: blur(1px);
+}
+}
+
+/* Mobil-spesifike kontroller */
+/* Touch optimized styles */
+@media (hover: none) and (pointer: coarse) {
+    .ui-panel button,
+    .modal button,
+    .menu-option {
+        min-height: 44px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        font-size: 18px;
+    }
+    
+    .modal-content {
+        width: 90%;
+        max-width: 400px;
+        padding: 20px;
+    }
+    
+    .math-input {
+        height: 44px;
+        font-size: 18px;
+        margin: 15px 0;
+    }
+    
+    .math-buttons {
+        gap: 12px;
+    }
+    
+    .math-btn {
+        min-height: 44px;
+        font-size: 16px;
+    }
+    
+    .pwa-install-prompt {
+        padding: 15px 20px;
+    }
+    
+    .pwa-btn {
+        min-height: 44px;
+        font-size: 16px;
+    }
+    
+    #statsPanel {
+        font-size: 16px;
+        padding: 15px;
+    }
+    
+    .resource-bar {
+        height: 24px;
+        margin: 8px 0;
+    }
+}
+
+/* Mobile controls */
+#mobileControls {
+    pointer-events: auto !important;
+}
+.control-button {
+    pointer-events: auto !important;
+    touch-action: manipulation;
+}
+@media (max-width: 768px) {
+    #statsPanel {
+        font-size: 12px;
+        padding: 6px;
+        min-width: 140px;
+        top: 5px;
+        max-height: 400px !important;
+        overflow: visible !important;
+        cursor: default;
+        border-radius: 15px;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        background: rgba(26, 26, 46, 0.95);
+        transition: all 0.3s ease;
+    }
+
+    #statsPanel.expanded {
+        max-height: 400px;
+        overflow-y: auto;
+        cursor: default;
+        border-radius: 15px;
+    }
+
+    #statsPanel h3 {
+        font-size: 14px;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 0;
+        touch-action: manipulation;
+    }
+
+    #statsPanel .toggle-indicator {
+        font-size: 12px;
+        transition: transform 0.3s ease;
+    }
+
+    #statsPanel.expanded .toggle-indicator {
+        transform: rotate(180deg);
+    }
+
+    .stat-row {
+        margin: 6px 0;
+        font-size: 11px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    #statsPanel.expanded .stat-row {
+        opacity: 1;
+    }
+
+    .resource-bar {
+        height: 14px;
+        margin: 4px 0;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    #statsPanel.expanded .resource-bar {
+        opacity: 1;
+    }
+
+    .mobile-status-compact {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 2px 0;
+        font-size: 10px;
+    }
+
+    .mobile-health-indicator {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        font-size: 10px;
+    }
+
+    .mobile-mini-bar {
+        width: 25px;
+        height: 4px;
+        background: rgba(255,255,255,0.2);
+        border-radius: 2px;
+        overflow: hidden;
+    }
+
+    .mobile-mini-fill {
+        height: 100%;
+        transition: width 0.3s ease;
+        border-radius: 2px;
+    }
+}
+#mobileControls {
+    pointer-events: auto !important;
+}
+.control-button {
+    pointer-events: auto !important;
+    touch-action: manipulation;
+}
+
+/* InfoPanel - desktop og mobil */
+#infoPanel {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 8px;
+    border-radius: 10px;
+    border: 2px solid #3498db;
+    min-width: 120px;
+    max-width: 40vw;
+    max-height: 20vh;
+    overflow-y: auto;
+    backdrop-filter: blur(3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+@media (max-width: 600px) {
+    #infoPanel {
+        top: auto;
+        bottom: 10px;
+        right: 10px;
+        min-width: 120px;
+        max-width: 90vw;
+        max-height: 30vh;
+        font-size: 13px;
+        padding: 6px;
+        z-index: 101;
+    }
+}
+
+/* MOBILE TOUCH OPTIMIZED INVENTORY */
+.inventory-slot {
+    min-width: 44px !important;
+    min-height: 44px !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: rgba(255,255,255,0.3) !important;
+    cursor: pointer !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    pointer-events: auto !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+.inventory-slot:active,
+.inventory-slot:focus {
+    background-color: rgba(255,255,255,0.2) !important;
+    outline: 2px solid #3498db !important;
+}
