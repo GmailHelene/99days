@@ -422,8 +422,8 @@ class Game {
         window.addEventListener('resize', () => this.resizeCanvas());
         
         // Touch/mouse events for mobile
-        this.canvas.addEventListener('click', (e) => this.handleClick(e));
-        this.canvas.addEventListener('touchstart', (e) => this.handleClick(e));
+    this.canvas.addEventListener('click', (e) => this.handleClick(e));
+    this.canvas.addEventListener('touchstart', (e) => this.handleClick(e), { passive: true });
     }
     
     handleClick(e) {
