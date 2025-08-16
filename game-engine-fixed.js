@@ -427,7 +427,7 @@ class Game {
         
         // Touch/mouse events for mobile
         this.canvas.addEventListener('click', (e) => this.handleClick(e));
-        this.canvas.addEventListener('touchstart', (e) => this.handleClick(e));
+    this.canvas.addEventListener('touchstart', (e) => this.handleClick(e), { passive: true });
     }
     
     handleClick(e) {
@@ -883,7 +883,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if (joystick) {
-        joystick.addEventListener('touchstart', handleStart);
+    joystick.addEventListener('touchstart', handleStart, { passive: true });
         document.addEventListener('touchmove', handleMove);
         document.addEventListener('touchend', handleEnd);
 
