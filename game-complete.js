@@ -376,9 +376,9 @@ class MobileOptimizer {
             // Prevent zoom on input (only for pinch-zoom, allow all other touch)
             document.addEventListener('touchstart', (e) => {
                 if (e.touches.length > 1) {
-                    e.preventDefault();
+                    // Do not call preventDefault to avoid scroll-blocking violation
                 }
-            }, { passive: false });
+            }, { passive: true });
 
             // Handle orientation changes
             window.addEventListener('orientationchange', () => {
